@@ -23,7 +23,6 @@ e=zeros(size(M));
 u=u0;
 for kk=1:N_class
     e(:,:,kk) = (Img-b.*C(kk)).*log(Img./(b.*C(kk))+1e-10);
-    %e(:,:,kk) = (Img).*log(Img./(b.*C(kk))+1e-10).^2;
 end
 
 for kk=1:iter
@@ -35,7 +34,6 @@ for kk=1:iter
     u=u+timestep*(ImageTerm);
 end
 
-% update b
 function b =updateB(Img, C, M,  Ksigma)
 
 PC1=zeros(size(Img));
@@ -50,7 +48,6 @@ KDn1 = conv2(PC2,Ksigma,'same');
 
 b = KNm1./KDn1+1e-10;
 
-% Update C
 function C_new =updateC(Img, u, Kb1, Kb2, epsilon)
 Hu=Heaviside(u,epsilon);
 M(:,:,1)=Hu;
@@ -62,9 +59,6 @@ for kk=1:N_class
     C_new(kk) = sum(Nm2(:))/sum(Dn2(:))+1e-10;
 end
 
-
-
-% Make a function satisfy Neumann boundary condition
 function g = NeumannBoundCond(f)
 [nrow,ncol] = size(f);
 g = f;
