@@ -46,7 +46,7 @@ b=ones(size(Imgf));
 for n=1:iter_outer 
     if sigma>min_sigma
         if (n ~= 0 && mod(n, 2) == 0)
-            sigma = (sigma - 10) / 2 * (exp(-0.025 * n) + exp(-0.001 * n)) + min_sigma; % Eq.15
+            sigma = (sigma - min_sigma) / 2 * (exp(-0.025 * n) + exp(-0.001 * n)) + min_sigma; % Eq.15
         end
     else
         sigma =sigma;
@@ -84,4 +84,5 @@ figure;
 mesh(u);
 colorbar;
 title('Final level set function');
+
 
