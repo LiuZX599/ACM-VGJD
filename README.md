@@ -6,3 +6,7 @@ In industrial computed tomography (ICT), factors like beam scattering, insuffici
 1. The JD is introduced to construct the energy function based on the LIC model, which better measures the disparity between the fitted image and the real image, thereby enhancing the efficacy of the model. Additionally, an image filter weight is added to better suppress noise interference in ICT images.
 2. A variation function for the Gaussian kernel scale parameter is formulated to effectively leverage both global and local image information. This enables the segmentation contour to rapidly converge towards the target region while maintaining the ability for precise segmentation, thereby enhancing the robustness of the initial contour.
 3. The length term, regularization term, and driving function of the model are refined to constrain the level set function with the range of [–1, 1]. This increases the steepness of the level set function near the zero level set and further improves segmentation accuracy.
+# Citation
+If you use the code or data in this repository, please cite our paper:
+
+Liu Z, Li Q, Wang J, et al. A Variable Gaussian Kernel Scale Active Contour Model Based on Jeffreys Divergence for ICT Image Segmentation[J]. Pattern Recognition, 2025: 112384.
